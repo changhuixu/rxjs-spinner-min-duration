@@ -1,0 +1,22 @@
+<section style="display: flex; flex-direction: column; margin: 1rem 0;">
+  <p>
+    Loading spinner shows up with a minumum duration (1 second).
+  </p>
+  <div>
+    <button type="button" class="btn" (click)="load(100)" [disabled]="loading">
+      0.1s Request
+    </button>
+    <button type="button" class="btn" (click)="load(500)" [disabled]="loading">
+      0.5s Request
+    </button>
+    <button type="button" class="btn" (click)="load(1000)" [disabled]="loading">
+      1s Request
+    </button>
+    <button type="button" class="btn" (click)="load(2000)" [disabled]="loading">
+      2s Request
+    </button>
+  </div>
+  <div *ngIf="loading">
+    <uiowa-ring></uiowa-ring>
+  </div>
+</section>
