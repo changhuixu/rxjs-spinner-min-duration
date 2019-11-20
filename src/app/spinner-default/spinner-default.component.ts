@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AppService } from '../service/app.service';
+import { finalize } from 'rxjs/operators';
 
 @Component({
   selector: 'app-spinner-default',
@@ -14,9 +15,11 @@ export class SpinnerDefaultComponent implements OnInit {
 
   load(miliseconds: number) {
     this.loading = true;
-    this.svc.apiCall(miliseconds).subscribe(x => {
-      console.log(x);
-      this.loading = false;
-    });
+    this.svc
+      .apiCall(miliseconds)
+      .pipe(finalize(() => (this.loading = false)))
+      .subscribe(x => {
+        console.log(x);
+      });
   }
 }
