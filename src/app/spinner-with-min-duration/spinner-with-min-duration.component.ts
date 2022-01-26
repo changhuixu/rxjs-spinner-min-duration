@@ -14,9 +14,9 @@ export class SpinnerWithMinDurationComponent implements OnInit {
   constructor(private svc: AppService) {}
   ngOnInit() {}
 
-  load(miliseconds: number) {
+  load(milliSeconds: number) {
     this.loading = true;
-    combineLatest(timer(1000), this.svc.apiCall(miliseconds))
+    combineLatest([timer(1000), this.svc.apiCall(milliSeconds)])
       .pipe(
         map(x => x[1]),
         finalize(() => (this.loading = false))

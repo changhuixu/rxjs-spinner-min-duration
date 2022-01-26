@@ -2,7 +2,7 @@
 
 Show spinner with minimum duration using rxjs combineLatest operator
 
-## [Demo (StackBlitz)](https://stackblitz.com/github/changhuixu/rxjs-spinner-min-duration)
+## [Demo (StackBlitz)](https://changhuixu.github.io/rxjs-spinner-min-duration/)
 
 ### Story ([Medium Post](https://codeburst.io/rxjs-show-spinner-for-a-minimum-amount-of-time-807ac6b23227))
 
