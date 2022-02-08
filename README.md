@@ -2,7 +2,7 @@
 
 Show spinner with minimum duration using rxjs combineLatest operator
 
-## [Demo (StackBlitz)](https://changhuixu.github.io/rxjs-spinner-min-duration/)
+## [Demo](https://changhuixu.github.io/rxjs-spinner-min-duration/)
 
 ### Story ([Medium Post](https://codeburst.io/rxjs-show-spinner-for-a-minimum-amount-of-time-807ac6b23227))
 
@@ -21,13 +21,13 @@ In this repository, I utilize RxJS operator `combineLatest` to create a new obse
 First, we can combine two observables. The first one is `timer(dueTime: number): Observable<number>` observable, which emits a number after `dueTime`. The second one is the actual service doing API call, which returns whatever data you want.
 
 ```typescript
-combineLatest(timer(1000), this.svc.apiCall());
+combineLatest([timer(1000), this.svc.apiCall()]);
 ```
 
 The above operator returns a combined value only when both observables emit values. The final combined value is of type `Observable<[number, any]>`. So that you can get the data you want by mapping the combined value to only take the second element in array.
 
 ```typescript
-combineLatest(timer(1000), this.svc.apiCall()).pipe(map(x => x[1]));
+combineLatest([timer(1000), this.svc.apiCall()]).pipe(map(x => x[1]));
 ```
 
 In the end, you can subscribe the observable as usual. The final code is like below. Note that you can place the combined observable in service if needed.
@@ -35,7 +35,7 @@ In the end, you can subscribe the observable as usual. The final code is like be
 ```typescript
   load(miliseconds: number) {
     this.loading = true;
-    combineLatest(timer(1000), this.svc.apiCall(miliseconds))
+    combineLatest([timer(1000), this.svc.apiCall(miliseconds)])
       .pipe(map(x => x[1]))
       .subscribe(x => {
         console.log(x);
