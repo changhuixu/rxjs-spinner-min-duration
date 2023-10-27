@@ -13,10 +13,10 @@ export class SpinnerDefaultComponent implements OnInit {
   constructor(private svc: AppService) {}
   ngOnInit() {}
 
-  load(miliseconds: number) {
+  load(milliseconds: number) {
     this.loading = true;
     this.svc
-      .apiCall(miliseconds)
+      .apiCall(milliseconds)
       .pipe(finalize(() => (this.loading = false)))
       .subscribe(x => {
         console.log(x);

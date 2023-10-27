@@ -9,11 +9,11 @@ export class AppService {
   constructor() {}
 
   /**
-   * A service method to simulate API request with a delay. This method returns an obervable of an object.
-   * @param milisenconds waiting time
+   * A service method to simulate API request with a delay. This method returns an observable of an object.
+   * @param milliseconds waiting time
    */
-  apiCall(milisenconds: number): Observable<any> {
-    return timer(milisenconds).pipe(
+  apiCall(milliseconds: number): Observable<any> {
+    return timer(milliseconds).pipe(
       map(_ => {
         return {
           make: 'abc',
