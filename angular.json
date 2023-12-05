@@ -85,10 +85,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "spinner-with-min-display-time:build:production"
+              "buildTarget": "spinner-with-min-display-time:build:production"
             },
             "development": {
-              "browserTarget": "spinner-with-min-display-time:build:development"
+              "buildTarget": "spinner-with-min-display-time:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -96,7 +96,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "spinner-with-min-display-time:build"
+            "buildTarget": "spinner-with-min-display-time:build"
           }
         }
       }
